@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/master.css">
+  <title>School Website</title>
+</head>
+<body>
+  <div class='container-fluid'>
+    <header class="row">
+      <h1 class="col-sm-12">Musterschule<small> Gymnasium für Jungen und Mädchen</small></h1>
+    </header>
+    <!-- navbar -->
+    <nav id='navbar' class="row navbar sticky-top navbar-expand-md bg-dark navbar-dark">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-navbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id='collapse-navbar'>
+
+        <ul class="navbar-nav">
+          <li class="nav-item active disabled">
+            <a href="#" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>Aktuelles</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">Schulnachrichten</a>
+              <a href="#" class="dropdown-item">Kalender</a>
+              <a href="#" class="dropdown-item">Vertretungsplan</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>Schulinfos</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">Über die Schule</a>
+              <a href="#" class="dropdown-item">Kollegium</a>
+              <a href="#" class="dropdown-item">Schulleitung</a>
+              <a href="#" class="dropdown-item">Mitarbeiter</a>
+              <a href="#" class="dropdown-item">Bildergalerie</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>Unterricht</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">...</a>
+              <a href="#" class="dropdown-item">...</a>
+              <a href="#" class="dropdown-item">...</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>AGs</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">Übersicht</a>
+              <a href="#" class="dropdown-item">Details</a>
+              <a href="#" class="dropdown-item">...</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>Eltern</a>
+            <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">Elternpflegschaft</a>
+              <a href="#" class="dropdown-item">Infos von Eltern für Eltern</a>
+              <a href="#" class="dropdown-item">...</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <!-- carousel -->
+      <div class="row justify-content-center m-5">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+          </ul>
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class='d-block img-fluid' src="https://dummyimage.com/800x450/000000/0011ff.jpg" alt="Platzhalter">
+            </div>
+            <div class="carousel-item">
+              <img class='d-block img-fluid' src="https://dummyimage.com/800x450/000000/FF69B4.jpg" alt="Platzhalter">
+            </div>
+            <div class="carousel-item">
+              <img class='d-block img-fluid' src="https://dummyimage.com/800x450/000000/9932CC.jpg" alt="Platzhalter">
+            </div>
+          </div>
+
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
