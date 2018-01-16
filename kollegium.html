@@ -9,9 +9,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js'></script>
   <link rel="stylesheet" href="css/master.css">
   <link rel='stylesheet' media='screen and (min-width:1200px)' href='css/over1199.css'>
-  <title>Home</title>
+  <title>Kollegium</title>
 </head>
 <body>
   <div class='container-fluid'>
@@ -29,7 +30,7 @@
 
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active disabled">Home</a>
+            <a href="index.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>Aktuelles</a>
@@ -43,7 +44,7 @@
             <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>Schulinfos</a>
             <div class="dropdown-menu">
               <a href="#" class="dropdown-item">Über die Schule</a>
-              <a href="kollegium.html" class="dropdown-item">Kollegium</a>
+              <a class="dropdown-item active disabled">Kollegium</a>
               <a href="#" class="dropdown-item">Schulleitung</a>
               <a href="#" class="dropdown-item">Mitarbeiter</a>
               <a href="#" class="dropdown-item">Bildergalerie</a>
@@ -76,49 +77,8 @@
         </ul>
       </div>
     </nav>
-    <main>
-      <!-- carousel -->
-      <div class="row justify-content-center m-5">
-        <div id="demo" class="carousel slide" data-ride="carousel">
+    <main id='teachers' class='mt-5'>
 
-          <ul class="carousel-indicators">
-            <li data-target="#demo" data-slide-to="0" class="active"></li>
-            <li data-target="#demo" data-slide-to="1"></li>
-            <li data-target="#demo" data-slide-to="2"></li>
-          </ul>
-
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class='d-block img-fluid' src="https://dummyimage.com/800x450/000000/0011ff.jpg" alt="Platzhalter">
-            </div>
-            <div class="carousel-item">
-              <img class='d-block img-fluid' src="https://dummyimage.com/800x450/000000/FF69B4.jpg" alt="Platzhalter">
-            </div>
-            <div class="carousel-item">
-              <img class='d-block img-fluid' src="https://dummyimage.com/800x450/000000/9932CC.jpg" alt="Platzhalter">
-            </div>
-          </div>
-
-          <a class="carousel-control-prev" href="#demo" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </a>
-          <a class="carousel-control-next" href="#demo" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </a>
-        </div>
-      </div>
-      <div class="row">
-        <!-- news articles -->
-        <section class="col-sm-12 col-lg-10 justify-content-center" id='articles'>
-        </section>
-        <!-- mini sidenav -->
-        <aside class="col-lg-2 d-none d-lg-block nav flex-column p-2">
-          <a href="#" class="badge badge-dark">Kontakt</a>
-          <a href="#" class="badge badge-dark">Vertretungsplan</a>
-          <a href="#" class="badge badge-dark">Speiseplan</a>
-          <a href="#" class="badge badge-dark">Klausurplan</a>
-        </aside>
-      </div>
     </main>
     <footer class="row justify-content-center">
       <!-- social media icons-->
@@ -127,7 +87,37 @@
       <a href="https://www.youtube.com/"><i class="fab fa-youtube fa-3x m-3"></i></a>
     </footer>
   </div>
-  <script src='js/model-articles.js'></script>
-  <script src='js/home.js'></script>
+
+  <!--- handlebars template -->
+  <script id="handlebars-demo" type="text/x-handlebars-template">
+    {{#each teachers}}
+      {{#ifFifth @index}}
+      <div class="row ml-2 mr-2 ml-sm-3 mr-sm-3">
+      {{/ifFifth}}
+        <div class="card col-sm-6 col-lg-3 bg-light border-primary p-2 mb-3">
+          {{#if img}}
+          <img class="card-img-top rounded p-xs-{size}" src="{{img}}" alt="Foto eines Lehrers">
+          {{else}}
+          <img class="card-img-top rounded" src="https://dummyimage.com/600x800/eaeafb/9932CC.jpg" alt="Platzhalter für Foto">
+          {{/if}}
+          <div class="card-body">
+            <h5 class="card-title">{{name}}</h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h6>Fächer:</h6> {{joinStrings subjects}}</li>
+            <li class="list-group-item"><h6>Weitere Funktionen:</h6> {{joinStrings tasks}}</li>
+            <li class="list-group-item"><h6>Kürzel:</h6> {{code}}</li>
+            <li class="list-group-item"><h6>Sprechstunde:</h6> {{consultationHours}}</li>
+          </ul>
+          <div class="card-footer">
+            <button type="button" class="btn btn-primary" id='btn-mail'>E-Mail schicken</button>
+          </div>
+        </div>
+      {{#ifFourthOrEnd @index ../teachers}}
+      </div>
+      {{/ifFourthOrEnd}}
+    {{/each}}
+  </script>
+  <script src='js/kollegium.js'></script>
 </body>
 </html>
