@@ -94,13 +94,13 @@
       {{#ifFifth @index}}
       <div class="row ml-2 mr-2 ml-sm-3 mr-sm-3">
       {{/ifFifth}}
-        <div class="card col-sm-6 col-lg-3 bg-light border-primary p-2 mb-3">
+        <div class="card col-sm-6 col-lg-3 border-danger bg-light p-2 mb-3">
           {{#if img}}
-          <img class="card-img-top rounded p-xs-{size}" src="{{img}}" alt="Foto eines Lehrers">
+          <img class="card-img-top rounded-circle p-xs-{size}" src="{{img}}" alt="Foto eines Lehrers">
           {{else}}
-          <img class="card-img-top rounded" src="https://dummyimage.com/600x800/eaeafb/9932CC.jpg" alt="Platzhalter für Foto">
+          <img class="card-img-top rounded-circle" src="https://dummyimage.com/600x800/eaeafb/9932CC.jpg" alt="Platzhalter für Foto">
           {{/if}}
-          <div class="card-body">
+          <div class="card-body text-danger">
             <h5 class="card-title">{{name}}</h5>
           </div>
           <ul class="list-group list-group-flush">
@@ -110,7 +110,10 @@
             <li class="list-group-item"><h6>Sprechstunde:</h6> {{consultationHours}}</li>
           </ul>
           <div class="card-footer">
-            <button type="button" class="btn btn-primary" id='btn-mail'>E-Mail schicken</button>
+            <button class="btn btn-primary" onclick='$("#svg-email{{@index}}").toggleClass("show-svg")'>Zeige Email-Adresse</button>
+            <svg height='20px' width='200px' class="mt-2 hide-svg" id='svg-email{{@index}}'>
+              <text x="3" y="14" fill="black" style="font-size: 14">{{email}}</text>
+            </svg>
           </div>
         </div>
       {{#ifFourthOrEnd @index ../teachers}}

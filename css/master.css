@@ -9,3 +9,11 @@ aside {
 article {
   background-color: #fce4cf;
 }
+
+.hide-svg {
+  display: none;
+}
+
+.show-svg {
+  display: inline;
+}
