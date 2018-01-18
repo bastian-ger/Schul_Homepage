@@ -96,7 +96,7 @@
   <!--- handlebars template -->
   <script id="handlebars-schulnachrichten" type="text/x-handlebars-template">
     {{#arrayOnlyFifty articles}}
-    <article class='row mb-4 ml-1 mr-1 ml-sm-3 mr-sm-3 mr-lg-2 bg-light'>
+    <article class='row mb-4 ml-1 mr-1 ml-sm-3 mr-sm-3 mr-lg-2 bg-light border border-danger'>
       <div class='col-md-4 order-12 order-md-1'>
         {{#arrayOnlyFirst images}}
         {{#if img}}
@@ -129,7 +129,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <article class='row mb-4'>
+                <article class='row mb-3'>
                   <div class="p-1">
                     <h2>{{hl}}</h2>  <span>{{date}}</span>
                     <p>{{aText}}</p>

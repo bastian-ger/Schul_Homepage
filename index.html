@@ -132,12 +132,12 @@
   <!--- handlebars template -->
   <script id="handlebars-home" type="text/x-handlebars-template">
     {{#arrayOnlyFive articles}}
-    <article class='row mb-4 ml-1 mr-1 ml-sm-3 mr-sm-3 mr-lg-2 bg-light'>
+    <article class='row mb-4 ml-1 mr-1 ml-sm-3 mr-sm-3 mr-lg-2 bg-light border border-danger'>
       <div class='col-md-4 order-12 order-md-1'>
         {{#arrayOnlyFirst images}}
         {{#if img}}
         <img class='img-fluid p-1' src="{{img}}" alt="{{imgAlt}}">
-        <figcaption>{{imgCaption}}</figcaption>
+        <figcaption class='p-1'>{{imgCaption}}</figcaption>
         {{else}}
         <img class='img-fluid p-1' src="https://dummyimage.com/800x450/000/0011ff.jpg&text=Platzhalter" alt="Platzhalter">
         <figcaption></figcaption>
@@ -165,14 +165,14 @@
                 </button>
               </div>
               <div class="modal-body">
-                <article class='row mb-4'>
-                  <div class="p-2">
+                <article class='row mb-3'>
+                  <div class="p-1">
                     <h2>{{hl}}</h2>  <span>{{date}}</span>
                     <p>{{aText}}</p>
                   </div>
                   {{#each images}}
                   {{#if img}}
-                  <div>
+                  <div class="p-1">
                     <img class='img-fluid' src="{{img}}" alt="{{imgAlt}}">
                     <figcaption>{{imgCaption}}</figcaption>
                   </div>
