@@ -39,7 +39,7 @@ const contextArticles =
         {
           "img": 'https://dummyimage.com/800x450/000000/9932CC.jpg',
           "imgAlt": 'Platzhalter',
-          "imgCaption": 'Toller Look!.'
+          "imgCaption": 'Toller Look!'
         }
       ]
     },
@@ -100,6 +100,11 @@ const contextArticles =
         'maxime suscipit totam quibusdam aperiam officia, fugiat deleniti ut consectetur a neque repudiandae' +
         'cupiditate, porro aliquam. Recusandae, ratione, illum. Saepe, earum.',
         "images": [
+          {
+            "img": 'https://dummyimage.com/800x450/000000/0011ff.jpg',
+            "imgAlt": 'Platzhalter',
+            "imgCaption": 'Immer mehr Schüler sind krank.'
+          }
         ]
     }
   ]

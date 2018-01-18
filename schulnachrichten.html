@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js'></script>
   <link rel="stylesheet" href="css/master.css">
   <link rel='stylesheet' media='screen and (min-width:1200px)' href='css/over1199.css'>
   <title>Schulnachrichten</title>
@@ -80,6 +81,7 @@
       <div class="row ml-3 mr-3">
         <!-- news articles -->
         <section class="justify-content-center mt-5" id='articles-many'>
+
         </section>
       </div>
     </main>
@@ -90,6 +92,67 @@
       <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-3x m-3"></i></a>
     </footer>
   </div>
+
+  <!--- handlebars template -->
+  <script id="handlebars-schulnachrichten" type="text/x-handlebars-template">
+    {{#arrayOnlyFifty articles}}
+    <article class='row mb-4 ml-1 mr-1 ml-sm-3 mr-sm-3 mr-lg-2 bg-light'>
+      <div class='col-md-4 order-12 order-md-1'>
+        {{#arrayOnlyFirst images}}
+        {{#if img}}
+        <img class='img-fluid p-1' src="{{img}}" alt="{{imgAlt}}">
+        <figcaption class="p-1">{{imgCaption}}</figcaption>
+        {{else}}
+        <img class='img-fluid p-1' src="https://dummyimage.com/800x450/000/0011ff.jpg&text=Platzhalter" alt="Platzhalter">
+        <figcaption></figcaption>
+        {{/if}}
+        {{/arrayOnlyFirst}}
+      </div>
+      <div class='col-md-8 order-1 order-md-12'>
+        <h2>{{hl}}</h2>  <span>{{date}}</span>
+        <p>{{shortText aText}}...</p>
+        <!-- Button trigger modal -->
+        <div class='row justify-content-center m-2'>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#theModal{{getIndex this ../articles}}">
+            Öffnen
+          </button>
+        </div>
+      </div>
+        <!-- Modal -->
+        <div class="modal fade" id="theModal{{getIndex this ../articles}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Einzelansicht</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <article class='row mb-4'>
+                  <div class="p-1">
+                    <h2>{{hl}}</h2>  <span>{{date}}</span>
+                    <p>{{aText}}</p>
+                  </div>
+                  {{#each images}}
+                  {{#if img}}
+                  <div class="p-1">
+                    <img class='img-fluid' src="{{img}}" alt="{{imgAlt}}">
+                    <figcaption>{{imgCaption}}</figcaption>
+                  </div>
+                  {{/if}}
+                  {{/each}}
+                </article>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </article>
+    {{/arrayOnlyFifty}}
+  </script>
   <script src='js/model-articles.js'></script>
   <script src='js/schulnachrichten.js'></script>
 </body>
