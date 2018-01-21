@@ -12,7 +12,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js'></script>
   <link rel="stylesheet" href="css/master.css">
   <link rel='stylesheet' media='screen and (min-width:1200px)' href='css/over1199.css'>
-  <title>Schulnachrichten</title>
+  <title>Speiseplan</title>
 </head>
 <body>
   <div class='container-fluid'>
@@ -35,10 +35,10 @@
           <li class="nav-item dropdown">
             <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>Aktuelles</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item active disabled">Schulnachrichten</a>
+              <a href="schulnachrichten.html" class="dropdown-item">Schulnachrichten</a>
               <a href="#" class="dropdown-item">Kalender</a>
               <a href="#" class="dropdown-item">Vertretungsplan</a>
-              <a href="speiseplan.html" class="dropdown-item">Speiseplan</a>
+              <a class="dropdown-item active disabled">Speiseplan</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -78,13 +78,9 @@
         </ul>
       </div>
     </nav>
-    <main>
-      <div class="row ml-3 mr-3">
-        <!-- news articles -->
-        <section class="justify-content-center mt-5" id='articles-many'>
+    <!-- Speiseplan -->
+    <main class='mt-5' id='speiseplan'>
 
-        </section>
-      </div>
     </main>
     <footer class="row justify-content-center">
       <!-- social media icons-->
@@ -93,67 +89,57 @@
       <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-3x m-3"></i></a>
     </footer>
   </div>
-
   <!--- handlebars template -->
-  <script id="handlebars-schulnachrichten" type="text/x-handlebars-template">
-    {{#arrayOnlyFifty articles}}
-    <article class='row mb-4 ml-1 mr-1 ml-sm-3 mr-sm-3 mr-lg-2 bg-light border border-danger'>
-      <div class='col-md-4 order-12 order-md-1'>
-        {{#arrayOnlyFirst images}}
-        {{#if img}}
-        <img class='img-fluid p-1' src="{{img}}" alt="{{imgAlt}}">
-        <figcaption class="p-1">{{imgCaption}}</figcaption>
-        {{else}}
-        <img class='img-fluid p-1' src="https://dummyimage.com/800x450/000/0011ff.jpg&text=Platzhalter" alt="Platzhalter">
-        <figcaption></figcaption>
-        {{/if}}
-        {{/arrayOnlyFirst}}
-      </div>
-      <div class='col-md-8 order-1 order-md-12'>
-        <h2>{{hl}}</h2>  <span>{{date}}</span>
-        <p>{{shortText aText}}...</p>
-        <!-- Button trigger modal -->
-        <div class='row justify-content-center m-2'>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#theModal{{getIndex this ../articles}}">
-            Öffnen
-          </button>
-        </div>
-      </div>
-        <!-- Modal -->
-        <div class="modal fade" id="theModal{{getIndex this ../articles}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Einzelansicht</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <article class='row mb-3'>
-                  <div class="p-1">
-                    <h2>{{hl}}</h2>  <span>{{date}}</span>
-                    <p>{{aText}}</p>
-                  </div>
-                  {{#each images}}
-                  {{#if img}}
-                  <div class="p-1">
-                    <img class='img-fluid' src="{{img}}" alt="{{imgAlt}}">
-                    <figcaption>{{imgCaption}}</figcaption>
-                  </div>
-                  {{/if}}
-                  {{/each}}
-                </article>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-    </article>
-    {{/arrayOnlyFifty}}
+  <script id="handlebars-speiseplan" type="text/x-handlebars-template">
+    {{#arrayOnlyFive meals}}
+    <h3>KW: {{week}}</h3>
+    <table class="table table-sm table-dark table-striped table-hover table-responsive table-bordered">
+      <thead>
+        <tr class='text-center'>
+          <th scope="col">Speisearten</th>
+          <th scope="col">Montag</th>
+          <th scope="col">Dienstag</th>
+          <th scope="col">Mittwoch</th>
+          <th scope="col">Donnerstag</th>
+          <th scope="col">Freitag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Hauptspeise 1</th>
+          {{#each mainMeal}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th scope="row">Hauptspeise vegetarisch</th>
+          {{#each vegMeal}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th scope="row">Nachspeise</th>
+          {{#each dessert}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th scope="row">Sonstiges</th>
+          {{#each miscellaneous}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th scope="row">Hinweise</th>
+          {{#each warnings}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+      </tbody>
+    </table>
+    {{/arrayOnlyFive}}
   </script>
-  <script src='js/model-articles.js'></script>
-  <script src='js/schulnachrichten.js'></script>
+  <script src='js/model-meals.js'></script>
+  <script src='js/speiseplan.js'></script>
 </body>
+</html>
