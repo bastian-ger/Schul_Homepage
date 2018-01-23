@@ -2,8 +2,18 @@ body {
   background-color: #b6e1fc;
 }
 
-aside {
+#side-nav {
   font-size: 26px;
+}
+
+#weather {
+  font-size: 14px;
+  background-color: white;
+}
+
+#weather .attribution {
+  font-size: 9px;
+  margin: 0px;
 }
 
 .hide-svg {
