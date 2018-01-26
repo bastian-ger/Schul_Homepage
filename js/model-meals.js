@@ -78,4 +78,4 @@ const contextSpeiseplan =
       ]
     }
   ]
-}
+};

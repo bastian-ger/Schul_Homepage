@@ -14,7 +14,7 @@ $(document).ready( () => {
 
   // Shows only the last five elements of an array
   Handlebars.registerHelper('arrayOnlyFive', (array, options) => {
-  let ret = "";
+  let ret = '';
   if (array.length < 5) {
     for (let i = array.length - 1; i > -1; i--) {
       ret += options.fn(array[i]);
@@ -31,7 +31,7 @@ $(document).ready( () => {
   // Gets index of arrays which work without #each
   Handlebars.registerHelper('getIndex', (object, array) => {
     return array.indexOf(object);
-  })
+  });
 
   // Compile the template data into a function
   let templateScript = Handlebars.compile(template);
@@ -63,12 +63,12 @@ $(document).ready( () => {
         <p>Luftfeuchtigkeit: ${data.main.humidity} %</p>
         <p>Wind Speed: ${data.wind.speed} m/sek</p>
         <p class="attribution">Dieser Wetterbericht wird geliefert von <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a>.</p>
-        <p class="attribution">Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International</a></p>`
+        <p class="attribution">Lizenz: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.de" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International</a></p>`;
     }
     else {
       htmlString = '<p>Es konnten keine aktuellen Wetterdaten geladen werden.</p>';
     }
-    $('#weather').append(htmlString)
+    $('#weather').append(htmlString);
   }
 
   function requestError(error, brokenElement) {

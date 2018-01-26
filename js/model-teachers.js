@@ -56,4 +56,4 @@ var context =
       "email": 'emil@musterschuleXYZ.de'
     }
   ]
-}
+};

@@ -4,7 +4,7 @@ $(document).ready( () => {
 
   // Shows only the last five elements of an array
   Handlebars.registerHelper('arrayOnlyFive', (array, options) => {
-  let ret = "";
+  let ret = '';
   if (array.length < 5) {
     for (let i = array.length - 1; i > -1; i--) {
       ret += options.fn(array[i]);

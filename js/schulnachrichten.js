@@ -14,7 +14,7 @@ $(document).ready( () => {
 
   // Shows only the last five elements of an array
   Handlebars.registerHelper('arrayOnlyFifty', (array, options) => {
-  let ret = "";
+  let ret = '';
   if (array.length < 50) {
     for (let i = array.length - 1; i > -1; i--) {
       ret += options.fn(array[i]);
@@ -31,7 +31,7 @@ $(document).ready( () => {
   // Gets index of arrays which work without #each
   Handlebars.registerHelper('getIndex', (object, array) => {
     return array.indexOf(object);
-  })
+  });
 
   // Compile the template data into a function
   let templateScript = Handlebars.compile(template);
