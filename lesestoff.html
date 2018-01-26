@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
@@ -12,7 +12,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js'></script>
   <link rel="stylesheet" href="css/master.css">
   <link rel='stylesheet' media='screen and (min-width:1200px)' href='css/over1199.css'>
-  <title>Schulnachrichten</title>
+  <title>Home</title>
 </head>
 <body>
   <div class='container-fluid'>
@@ -35,7 +35,7 @@
           <li class="nav-item dropdown">
             <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>Aktuelles</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item active disabled">Schulnachrichten</a>
+              <a href="schulnachrichten.html" class="dropdown-item">Schulnachrichten</a>
               <a href="#" class="dropdown-item">Kalender</a>
               <a href="#" class="dropdown-item">Vertretungsplan</a>
               <a href="speiseplan.html" class="dropdown-item">Speiseplan</a>
@@ -78,7 +78,7 @@
           <li class="nav-item dropdown">
             <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>Anregendes</a>
             <div class="dropdown-menu">
-              <a href="lesestoff.html" class="dropdown-item">Lesestoff</a>
+              <a class="dropdown-item active disabled">Lesestoff</a>
               <a href="#" class="dropdown-item">...</a>
               <a href="#" class="dropdown-item">...</a>
             </div>
@@ -86,14 +86,22 @@
         </ul>
       </div>
     </nav>
-    <main>
-      <div class="row ml-3 mr-3">
-        <!-- news articles -->
-        <section class="justify-content-center mt-5" id='articles-many'>
-
+      <main class="row mt-1 mt-sm-3 ml-3 mr-3">
+        <h4 class="mt-5">Anregungen aus den aktuellen Bestseller-Rankings der NY Times</h4>
+        <div class='m-3'>
+          <label class='mr-2'>Bitte wähle eine Bestseller-Liste!</label>
+          <select id='select-bs-list' class='border-danger p-2 bg-light'>
+            <option value='' disabled selected>Bitte wählen</option>
+            <option value='series-books'>Children's Series</option>
+            <option value='young-adult-hardcover'>Young Adult Hardcover</option>
+          </select>
+        </div>
+        <section class='mt-3' id='list-children'>
         </section>
-      </div>
     </main>
+    <div class='justify-content-center'>
+      <a href='http://developer.nytimes.com' target='_blank'><img src="img/poweredby_nytimes_150c.png" alt="New York Times Logo"></a>
+    </div>
     <footer class="row justify-content-center">
       <!-- social media icons-->
       <a href="https://twitter.com/?lang=de" target="_blank"><i class="fab fa-twitter fa-3x m-3"></i></a>
@@ -101,67 +109,7 @@
       <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-3x m-3"></i></a>
     </footer>
   </div>
-
-  <!--- handlebars template -->
-  <script id="handlebars-schulnachrichten" type="text/x-handlebars-template">
-    {{#arrayOnlyFifty articles}}
-    <article class='row mb-4 ml-1 mr-1 ml-sm-3 mr-sm-3 mr-lg-2 bg-light border border-danger'>
-      <div class='col-md-4 order-12 order-md-1'>
-        {{#arrayOnlyFirst images}}
-        {{#if img}}
-        <img class='img-fluid p-1' src="{{img}}" alt="{{imgAlt}}">
-        <figcaption class="p-1">{{imgCaption}}</figcaption>
-        {{else}}
-        <img class='img-fluid p-1' src="https://dummyimage.com/800x450/000/0011ff.jpg&text=Platzhalter" alt="Platzhalter">
-        <figcaption></figcaption>
-        {{/if}}
-        {{/arrayOnlyFirst}}
-      </div>
-      <div class='col-md-8 order-1 order-md-12'>
-        <h2>{{hl}}</h2>  <span>{{date}}</span>
-        <p>{{shortText aText}}...</p>
-        <!-- Button trigger modal -->
-        <div class='row justify-content-center m-2'>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#theModal{{getIndex this ../articles}}">
-            Öffnen
-          </button>
-        </div>
-      </div>
-        <!-- Modal -->
-        <div class="modal fade" id="theModal{{getIndex this ../articles}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalLabel">Einzelansicht</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <article class='row mb-3'>
-                  <div class="p-1">
-                    <h2>{{hl}}</h2>  <span>{{date}}</span>
-                    <p>{{aText}}</p>
-                  </div>
-                  {{#each images}}
-                  {{#if img}}
-                  <div class="p-1">
-                    <img class='img-fluid' src="{{img}}" alt="{{imgAlt}}">
-                    <figcaption>{{imgCaption}}</figcaption>
-                  </div>
-                  {{/if}}
-                  {{/each}}
-                </article>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-    </article>
-    {{/arrayOnlyFifty}}
-  </script>
-  <script src='js/model-articles.js'></script>
-  <script src='js/schulnachrichten.js'></script>
+  <script src='js/secrets.js'></script>
+  <script src='js/lesestoff.js'></script>
 </body>
+</html>
