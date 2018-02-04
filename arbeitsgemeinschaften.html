@@ -12,7 +12,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js'></script>
   <link rel="stylesheet" href="css/master.css">
   <link rel='stylesheet' media='screen and (min-width:1200px)' href='css/over1199.css'>
-  <title>Speiseplan</title>
+  <title>Arbeitsgemeinschaften</title>
 </head>
 <body>
   <div class='container-fluid'>
@@ -38,7 +38,7 @@
               <a href="schulnachrichten.html" class="dropdown-item">Schulnachrichten</a>
               <a href="#" class="dropdown-item">Kalender</a>
               <a href="#" class="dropdown-item">Vertretungsplan</a>
-              <a class="dropdown-item active disabled">Speiseplan</a>
+              <a href="speiseplan.html" class="dropdown-item">Speiseplan</a>
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -62,7 +62,7 @@
           <li class="nav-item dropdown">
             <a href="#" id='navbar-drop' class="nav-link dropdown-toggle" data-toggle='dropdown'>AGs</a>
             <div class="dropdown-menu">
-              <a href="arbeitsgemeinschaften.html" class="dropdown-item">Übersicht</a>
+              <a class="dropdown-item active disabled">Übersicht</a>
               <a href="arbeitsgemeinschaften-tabelle.html" class="dropdown-item">Tabelle</a>
               <a href="#" class="dropdown-item">...</a>
             </div>
@@ -86,9 +86,14 @@
         </ul>
       </div>
     </nav>
-    <!-- Speiseplan -->
-    <main class='mt-5' id='speiseplan'>
+    <main>
+      <h3 class='mt-5 mb-4'>Willkommen zu unserem großen AG-Angebot für das Schuljahr 2017-2018</h3>
+      <div class="row ml-1 mr-1 ml-sm-2 mr-sm-2 ml-md-3 mr-md-3">
+        <!-- clubs -->
+        <section class="justify-content-center" id='clubs'>
 
+        </section>
+      </div>
     </main>
     <footer class="row justify-content-center">
       <!-- social media icons-->
@@ -98,56 +103,35 @@
     </footer>
   </div>
   <!--- handlebars template -->
-  <script id="handlebars-speiseplan" type="text/x-handlebars-template">
-    {{#arrayOnlyFive meals}}
-    <h3>KW: {{week}}</h3>
-    <table class="table table-sm table-dark table-striped table-hover table-responsive table-bordered">
-      <thead>
-        <tr class='text-center'>
-          <th scope="col">Speisearten</th>
-          <th scope="col">Montag</th>
-          <th scope="col">Dienstag</th>
-          <th scope="col">Mittwoch</th>
-          <th scope="col">Donnerstag</th>
-          <th scope="col">Freitag</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Hauptspeise 1</th>
-          {{#each mainMeal}}
-          <td>{{this}}</td>
-          {{/each}}
-        </tr>
-        <tr>
-          <th scope="row">Hauptspeise vegetarisch</th>
-          {{#each vegMeal}}
-          <td>{{this}}</td>
-          {{/each}}
-        </tr>
-        <tr>
-          <th scope="row">Nachspeise</th>
-          {{#each dessert}}
-          <td>{{this}}</td>
-          {{/each}}
-        </tr>
-        <tr>
-          <th scope="row">Sonstiges</th>
-          {{#each miscellaneous}}
-          <td>{{this}}</td>
-          {{/each}}
-        </tr>
-        <tr>
-          <th scope="row">Hinweise</th>
-          {{#each warnings}}
-          <td>{{this}}</td>
-          {{/each}}
-        </tr>
-      </tbody>
-    </table>
-    {{/arrayOnlyFive}}
+  <script id="handlebars-clubs" type="text/x-handlebars-template">
+    {{#clubs}}
+    <article class='row mb-4 ml-1 ml-sm-3 mr-1 mr-sm-3 bg-light border border-danger'>
+      <div class='col-md-4 order-12 order-md-1'>
+        {{#if img}}
+        <img class='img-fluid p-1' src="{{img}}" alt="Ein Foto vom Club">
+        <figcaption class='p-1'>{{imgCaption}}</figcaption>
+        {{else}}
+        <img class='img-fluid p-1' src="https://dummyimage.com/800x450/000/0011ff.jpg&text=Platzhalter" alt="Platzhalter">
+        <figcaption></figcaption>
+        {{/if}}
+      </div>
+      <div class='col-md-8 order-1 order-md-12'>
+        <h2>{{name}}</h2>
+        <p>Beschreibung: {{description}}</p>
+        <p>Wochentag: {{getDayString day}}</p>
+        {{#if timeMinutes}}
+        <p>Uhrzeit: {{timeHours}}:{{timeMinutes}}</p>
+        {{else}}
+        <p>Uhrzeit: {{timeHours}}:00</p>
+        {{/if}}
+        <p>Wo: {{room}}</p>
+        <p>Stufen: {{grades}}</p>
+        <p>Kosten: {{costs}}</p>
+      </div>
+    </article>
+    {{/clubs}}
   </script>
-  <script src='js/model-meals.js'></script>
-  <script src='js/speiseplan.js'></script>
+  <script src='js/model-ags.js'></script>
+  <script src='js/arbeitsgemeinschaften.js'></script>
 </body>
 </html>
