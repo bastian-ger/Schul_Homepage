@@ -23,3 +23,7 @@ body {
 .show-svg {
   display: inline;
 }
+
+.fc-unthemed td.fc-today {
+  background-color: pink;
+}
