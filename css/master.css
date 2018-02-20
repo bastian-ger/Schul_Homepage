@@ -27,3 +27,12 @@ body {
 .fc-unthemed td.fc-today {
   background-color: pink;
 }
+
+form label {
+  font-weight: bolder;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  color: black;
+  font-weight: bolder;
+}
