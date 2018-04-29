@@ -43,7 +43,7 @@ $(document).ready( () => {
   $('#articles').append(html);
 
   // Request for open weather map
-  const key = owm_key;
+  const key = '9759177ff596f4a5d9be5bdedc97fd4e';
   const url = `https://api.openweathermap.org/data/2.5/weather?id=6691073&units=metric&lang=de&APPID=${key}`;
 
   $.ajax(url)

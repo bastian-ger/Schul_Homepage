@@ -1,6 +1,6 @@
 $(document).ready( () => {
   // Request for NY Times Books API
-  const key = nyt_key;
+  const key = '4e1a6cdf3826470a9ec10ba51e15938e';
   let selection, url;
   let htmlString = '';
 
