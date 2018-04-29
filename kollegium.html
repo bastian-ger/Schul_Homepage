@@ -90,8 +90,11 @@
         </ul>
       </div>
     </nav>
-    <main id='teachers' class='mt-5'>
+    <main class="mt-1 mt-sm-3 ml-1 ml-sm-3 mr-1 mr-sm-3">
+      <h3 class="mt-2 mt-sm-3 mb-2 mb-sm-3">Unser Kollegium</h3>
+      <div id="teachers">
 
+      </div>
     </main>
     <footer class="row justify-content-center">
       <!-- social media icons-->
@@ -105,7 +108,7 @@
   <script id="handlebars-demo" type="text/x-handlebars-template">
     {{#each teachers}}
       {{#ifFifth @index}}
-      <div class="row ml-2 mr-2 ml-sm-3 mr-sm-3">
+      <div class="row">
       {{/ifFifth}}
         <div class="card col-sm-6 col-lg-3 border-danger bg-light p-2 mb-3">
           {{#if img}}
