@@ -1,6 +1,6 @@
 $(document).ready( () => {
   $('#calendar').fullCalendar({
-    googleCalendarApiKey: gcal_key,
+    googleCalendarApiKey: 'Your_Google_Calendar_KEY',
     locale: 'de',
     weekNumbers: true,
     columnHeaderFormat: 'ddd',
@@ -17,7 +17,7 @@ $(document).ready( () => {
     maxTime: '20:00:00',
     allDayText: 'Gtg',
     events: {
-            googleCalendarId: gcal_id
+            googleCalendarId: 'Your_Google_Calendar_Id'
         },
     windowResizeDelay: 500
   });
