@@ -6,7 +6,7 @@ $(document).ready( () => {
 
   $('#select-bs-list').change( event => {
     selection = event.target.value;
-    url = `http://api.nytimes.com/svc/books/v3/lists/current/${selection}.json?api-key=${key}`;
+    url = `https://api.nytimes.com/svc/books/v3/lists/current/${selection}.json?api-key=${key}`;
 
     $.ajax(url)
       .then(addBooks)
