@@ -9,31 +9,31 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <link rel="stylesheet" href="css/master.css">
-  <link rel='stylesheet' media='screen and (min-width:1200px)' href='css/over1199.css'>
+  <link rel="stylesheet" media="screen and (min-width:1200px)" href="css/over1199.css">
   <title>Lesestoff</title>
 </head>
 <body>
-  <div class='container-fluid'>
+  <div class="container-fluid">
     <header class="row">
       <h1 class="col-sm-12">Musterschule<small> Gymnasium für Jungen und Mädchen</small></h1>
     </header>
     <!-- navbar -->
-    <nav id='navbar' class="row navbar sticky-top navbar-expand-md bg-dark navbar-dark">
+    <nav id="navbar" class="row navbar sticky-top navbar-expand-md bg-dark navbar-dark">
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-navbar" aria-label="menu button">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id='collapse-navbar'>
+      <div class="collapse navbar-collapse" id="collapse-navbar">
 
         <ul class="navbar-nav">
           <li class="nav-item">
             <a href="index.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" id='navbar-drop-1' class="nav-link dropdown-toggle" data-toggle='dropdown'>Aktuelles</a>
+            <a href="#" id="navbar-drop-1" class="nav-link dropdown-toggle" data-toggle="dropdown">Aktuelles</a>
             <div class="dropdown-menu">
               <a href="schulnachrichten.html" class="dropdown-item">Schulnachrichten</a>
               <a href="kalender.html" class="dropdown-item">Kalender</a>
@@ -43,7 +43,7 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" id='navbar-drop-2' class="nav-link dropdown-toggle" data-toggle='dropdown'>Schulinfos</a>
+            <a href="#" id="navbar-drop-2" class="nav-link dropdown-toggle" data-toggle="dropdown">Schulinfos</a>
             <div class="dropdown-menu">
               <a href="#" class="dropdown-item">Über die Schule</a>
               <a href="kollegium.html" class="dropdown-item">Kollegium</a>
@@ -53,7 +53,7 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" id='navbar-drop-3' class="nav-link dropdown-toggle" data-toggle='dropdown'>Unterricht</a>
+            <a href="#" id="navbar-drop-3" class="nav-link dropdown-toggle" data-toggle="dropdown">Unterricht</a>
             <div class="dropdown-menu">
               <a href="#" class="dropdown-item">...</a>
               <a href="#" class="dropdown-item">...</a>
@@ -61,7 +61,7 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" id='navbar-drop-4' class="nav-link dropdown-toggle" data-toggle='dropdown'>AGs</a>
+            <a href="#" id="navbar-drop-4" class="nav-link dropdown-toggle" data-toggle="dropdown">AGs</a>
             <div class="dropdown-menu">
               <a href="arbeitsgemeinschaften.html" class="dropdown-item">Übersicht</a>
               <a href="arbeitsgemeinschaften-tabelle.html" class="dropdown-item">Tabelle</a>
@@ -69,7 +69,7 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" id='navbar-drop-5' class="nav-link dropdown-toggle" data-toggle='dropdown'>Eltern</a>
+            <a href="#" id="navbar-drop-5" class="nav-link dropdown-toggle" data-toggle="dropdown">Eltern</a>
             <div class="dropdown-menu">
               <a href="#" class="dropdown-item">Elternpflegschaft</a>
               <a href="#" class="dropdown-item">Infos von Eltern für Eltern</a>
@@ -77,7 +77,7 @@
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" id='navbar-drop-6' class="nav-link dropdown-toggle" data-toggle='dropdown'>Anregendes</a>
+            <a href="#" id="navbar-drop-6" class="nav-link dropdown-toggle" data-toggle="dropdown">Anregendes</a>
             <div class="dropdown-menu">
               <a class="dropdown-item active disabled">Lesestoff</a>
               <a href="#" class="dropdown-item">...</a>
@@ -93,17 +93,17 @@
       <main class="mt-1 mt-sm-3 ml-1 ml-sm-3 mr-1 mr-sm-3">
         <h3 class="mt-2 mt-sm-3 mb-2 mb-sm-3">Anregungen aus den aktuellen Bestseller-Rankings der NY Times</h3>
         <div class="mt-2 mt-sm-3">
-          <label for='select-bs-list' class='mr-2'>Bitte wähle eine Bestseller-Liste!</label>
-          <select id='select-bs-list' class='border-danger p-2 bg-light'>
-            <option value='' disabled selected>Bitte wählen</option>
-            <option value='series-books'>Children's Series</option>
-            <option value='young-adult-hardcover'>Young Adult Hardcover</option>
+          <label for="select-bs-list" class="mr-2">Bitte wähle eine Bestseller-Liste!</label>
+          <select id="select-bs-list" class="border-danger p-2 bg-light">
+            <option value="" disabled selected>Bitte wählen</option>
+            <option value="series-books">Children's Series</option>
+            <option value="young-adult-hardcover">Young Adult Hardcover</option>
           </select>
         </div>
-        <section class='mt-2 mt-sm-3' id='list-children'>
+        <section class="mt-2 mt-sm-3" id="list-children">
         </section>
-        <div class='justify-content-center'>
-          <a href='https://developer.nytimes.com' target='_blank'>
+        <div class="justify-content-center">
+          <a href="https://developer.nytimes.com" target="_blank">
             <img src="https://static01.nytimes.com/packages/images/developer/logos/poweredby_nytimes_150c.png"
             alt="New York Times Logo">
           </a>
@@ -116,7 +116,7 @@
       <a href="https://www.youtube.com/" target="_blank" aria-label="Youtube"><i class="fab fa-youtube fa-3x m-3"></i></a>
     </footer>
   </div>
-  <script src='js/secrets.js'></script>
-  <script src='js/lesestoff.js'></script>
+  <script src="js/secrets.js"></script>
+  <script src="js/lesestoff.js"></script>
 </body>
 </html>
