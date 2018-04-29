@@ -72,7 +72,6 @@ $(document).ready( () => {
   }
 
   function requestError(error, brokenElement) {
-    console.log(error);
     $('#weather').append(`Der ${brokenElement} konnte nicht geladen werden!`);
   }
 });

@@ -3,20 +3,6 @@ $(document).ready( () => {
   let template = $('#handlebars-clubs-table').html();
 
   // custom helpers
-  /*
-  // produces an array of the keys of the first club object
-  Handlebars.registerHelper('getKeysOfFirstArrayObject', (array) => {
-    let htmlString = '';
-    const contextObj = array[0];
-    const keys = Object.keys(contextObj);
-
-    htmlString = keys.map( key =>
-    `<th scope="col">${key}</th>`
-    ).join('');
-
-    return htmlString;
-  });
-  */
   // turns the number of the day into a string
   Handlebars.registerHelper('getDayString', (day) => {
     let dayOfWeek = '';

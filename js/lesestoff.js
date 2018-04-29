@@ -42,7 +42,6 @@ $(document).ready( () => {
   }
 
   function requestError(error, brokenItem) {
-    console.log(error);
     $('#list-children').append(`<p>Leider ist die Anzeige der Liste ${brokenItem} fehlgeschlagen.</p>`);
   }
 });
