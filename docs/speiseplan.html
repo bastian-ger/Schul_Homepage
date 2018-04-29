@@ -1,0 +1,47 @@
+<!DOCTYPE html> <html lang="de"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta http-equiv="X-UA-Compatible" content="ie=edge"> <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script> <script defer="defer" src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script> <link rel="stylesheet" href="css/master.css"> <link rel="stylesheet" media="screen and (min-width:1200px)" href="css/over1199.css"> <title>Speiseplan</title> </head> <body> <div class="container-fluid"> <header class="row"> <h1 class="col-sm-12">Musterschule<small> Gymnasium für Jungen und Mädchen</small></h1> </header> <!-- navbar --> <nav id="navbar" class="row navbar sticky-top navbar-expand-md bg-dark navbar-dark"> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse-navbar" aria-label="menu button"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="collapse-navbar"> <ul class="navbar-nav"> <li class="nav-item"> <a href="index.html" class="nav-link">Home</a> </li> <li class="nav-item dropdown"> <a href="#" id="navbar-drop-1" class="nav-link dropdown-toggle" data-toggle="dropdown">Aktuelles</a> <div class="dropdown-menu"> <a href="schulnachrichten.html" class="dropdown-item">Schulnachrichten</a> <a href="kalender.html" class="dropdown-item">Kalender</a> <a href="#" class="dropdown-item">Vertretungsplan</a> <a class="dropdown-item active disabled">Speiseplan</a> <a href="wettbewerb.html" class="dropdown-item">Wettbewerb</a> </div> </li> <li class="nav-item dropdown"> <a href="#" id="navbar-drop-2" class="nav-link dropdown-toggle" data-toggle="dropdown">Schulinfos</a> <div class="dropdown-menu"> <a href="#" class="dropdown-item">Über die Schule</a> <a href="kollegium.html" class="dropdown-item">Kollegium</a> <a href="#" class="dropdown-item">Schulleitung</a> <a href="#" class="dropdown-item">Mitarbeiter</a> <a href="#" class="dropdown-item">Bildergalerie</a> </div> </li> <li class="nav-item dropdown"> <a href="#" id="navbar-drop-3" class="nav-link dropdown-toggle" data-toggle="dropdown">Unterricht</a> <div class="dropdown-menu"> <a href="#" class="dropdown-item">...</a> <a href="#" class="dropdown-item">...</a> <a href="#" class="dropdown-item">...</a> </div> </li> <li class="nav-item dropdown"> <a href="#" id="navbar-drop-4" class="nav-link dropdown-toggle" data-toggle="dropdown">AGs</a> <div class="dropdown-menu"> <a href="arbeitsgemeinschaften.html" class="dropdown-item">Übersicht</a> <a href="arbeitsgemeinschaften-tabelle.html" class="dropdown-item">Tabelle</a> <a href="#" class="dropdown-item">...</a> </div> </li> <li class="nav-item dropdown"> <a href="#" id="navbar-drop-6" class="nav-link dropdown-toggle" data-toggle="dropdown">Anregendes</a> <div class="dropdown-menu"> <a href="lesestoff.html" class="dropdown-item">Lesestoff</a> <a href="#" class="dropdown-item">...</a> <a href="#" class="dropdown-item">...</a> </div> </li> <li class="nav-item"> <a href="hinweis.html" class="nav-link">Wichtiger Hinweis</a> </li> </ul> </div> </nav> <main class="mt-1 mt-sm-3 ml-1 ml-sm-3 mr-1 mr-sm-3"> <h2 class="mt-2 mt-sm-3 mb-2 mb-sm-3">Speiseplan</h2> <!-- Speiseplan --> <section id="speiseplan"> </section> </main> <footer class="row justify-content-center"> <!-- social media icons--> <a href="https://twitter.com/?lang=de" target="_blank" aria-label="Twitter"><i class="fab fa-twitter fa-3x m-3"></i></a> <a href="https://de-de.facebook.com/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f fa-3x m-3"></i></a> <a href="https://www.youtube.com/" target="_blank" aria-label="Youtube"><i class="fab fa-youtube fa-3x m-3"></i></a> </footer> </div> <!--- handlebars template --> <script id="handlebars-speiseplan" type="text/x-handlebars-template"> {{#arrayOnlyFive meals}}
+    <h3>KW: {{week}}</h3>
+    <table class="table table-sm table-dark table-striped table-hover table-responsive table-bordered">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">Speisearten</th>
+          <th scope="col">Montag</th>
+          <th scope="col">Dienstag</th>
+          <th scope="col">Mittwoch</th>
+          <th scope="col">Donnerstag</th>
+          <th scope="col">Freitag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Hauptspeise 1</th>
+          {{#each mainMeal}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th scope="row">Hauptspeise vegetarisch</th>
+          {{#each vegMeal}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th scope="row">Nachspeise</th>
+          {{#each dessert}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th scope="row">Sonstiges</th>
+          {{#each miscellaneous}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+        <tr>
+          <th scope="row">Hinweise</th>
+          {{#each warnings}}
+          <td>{{this}}</td>
+          {{/each}}
+        </tr>
+      </tbody>
+    </table>
+    {{/arrayOnlyFive}} </script> <script src="js/model-meals.js"></script> <script src="js/speiseplan.js"></script> </body> </html> 
