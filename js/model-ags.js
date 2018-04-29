@@ -1,6 +1,6 @@
 // Anleitung: Für Tage bitte Nummer eingeben. Montag = 1, Dienstag = 2 usw.
 // Zeit bitte aufteilen in Stunden und Minuten.
-// Bei timeMinutes darf '00' geschrieben werden, da es dann zu '0' wird.
+// Bei timeMinutes sollte "0" für "00" Minuten geschrieben werden.
 
 const context =
 {
@@ -36,7 +36,7 @@ const context =
       "description": 'Nerdige Experimente sind unser Steckenpferd. Nicht nur was für Chemiefans!',
       "day": 3,
       "timeHours": 14,
-      "timeMinutes": 00,
+      "timeMinutes": 0,
       "teacher":'Frau Mustermann',
       "room": 'Chemielabor I',
       "grades": '10 - 12',

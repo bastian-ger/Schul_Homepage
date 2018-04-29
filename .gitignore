@@ -1,2 +1,4 @@
 js/secrets.js
 .eslintrc.json
+/node_modules
+/docs
